@@ -24,62 +24,83 @@
 </head>
 <body>
 
-<!-- SUAS 17 CATEGORIAS AQUI (todas completas, igual ao anterior) -->
-<!-- (colei só as primeiras pra caber, mas no final tem o link do arquivo 100% completo) -->
+<section id="p1" class="page active" data-cat="Maior Dementador">
+  <h1>Maior Dementador</h1>
+  <div class="options">
+    <div class="option" data-v="ZART"><span class="dot"></span>ZART</div>
+    <div class="option" data-v="POTTER"><span class="dot"></span>POTTER</div>
+    <div class="option" data-v="PEDRO"><span class="dot"></span>PEDRO</div>
+    <div class="option" data-v="FAT"><span class="dot"></span>FAT</div>
+    <div class="option" data-v="JUAN"><span class="dot"></span>JUAN</div>
+    <div class="option" data-v="BRUNA"><span class="dot"></span>BRUNA</div>
+  </div>
+  <button class="vote-btn" disabled>VOTAR</button>
+</section>
 
-<section id="p1" class="page active" data-cat="Maior Dementador"> <h1>Maior Dementador</h1> <div class="options"> <div class="option" data-v="ZART"><span class="dot"></span>ZART</div> <div class="option" data-v="POTTER"><span class="dot"></span>POTTER</div> <div class="option" data-v="PEDRO"><span class="dot"></span>PEDRO</div> <div class="option" data-v="FAT"><span class="dot"></span>FAT</div> <div class="option" data-v="JUAN"><span class="dot"></span>JUAN</div> <div class="option" data-v="BRUNA"><span class="dot"></span>BRUNA</div> </div> <button class="vote-btn" disabled>VOTAR</button> </section>
+<section id="p2" class="page" data-cat="Maior Criador de Narrativas">
+  <h1>Maior Criador de Narrativas</h1>
+  <div class="options">
+    <div class="option" data-v="ZART"><span class="dot"></span>ZART</div>
+    <div class="option" data-v="POTTER"><span class="dot"></span>POTTER</div>
+    <div class="option" data-v="PEDRO"><span class="dot"></span>PEDRO</div>
+    <div class="option" data-v="DJONATHAN"><span class="dot"></span>DJONATHAN</div>
+    <div class="option" data-v="JUAN"><span class="dot"></span>JUAN</div>
+  </div>
+  <button class="vote-btn" disabled>VOTAR</button>
+</section>
 
-<!-- ... p2 até p17 exatamente como antes ... -->
+<section id="p3" class="page" data-cat="Maior Narrativa">
+  <h1>Maior Narrativa</h1>
+  <div class="options">
+    <div class="option" data-v="IAGO por o KAUAN na família"><span class="dot"></span>IAGO por o KAUAN na família</div>
+    <div class="option" data-v="PEDRO pegar a ANITA"><span class="dot"></span>PEDRO pegar a ANITA</div>
+    <div class="option" data-v="VINI andar de long"><span class="dot"></span>VINI andar de long</div>
+    <div class="option" data-v="DJONATHAN pegar cara"><span class="dot"></span>DJONATHAN pegar cara</div>
+    <div class="option" data-v="IAGO cafetão"><span class="dot"></span>IAGO cafetão</div>
+  </div>
+  <button class="vote-btn" disabled>VOTAR</button>
+</section>
 
-<script>
-// LINK QUE FUNCIONA 100% (testado agora mesmo)
-const scriptURL = "https://script.google.com/macros/s/AKfycbxVZVlz418oeIMs_AghH7T5VBE2pkfmqHT-PUaha43rNbeZyWUN2MKVbhDGZ8OHlGB1uQ/exec";
+<section id="p4" class="page" data-cat="Mais Tiltado em Games">
+  <h1>Mais Tiltado em Games</h1>
+  <div class="options">
+    <div class="option" data-v="KAUAN"><span class="dot"></span>KAUAN</div>
+    <div class="option" data-v="POTTER"><span class="dot"></span>POTTER</div>
+    <div class="option" data-v="PEDRO"><span class="dot"></span>PEDRO</div>
+    <div class="option" data-v="DJONATHAN"><span class="dot"></span>DJONATHAN</div>
+    <div class="option" data-v="JUAN"><span class="dot"></span>JUAN</div>
+    <div class="option" data-v="MANAUS"><span class="dot"></span>MANAUS</div>
+  </div>
+  <button class="vote-btn" disabled>VOTAR</button>
+</section>
 
-let atual = 1;
-const total = 17;
+<section id="p5" class="page" data-cat="Mais Fraco pra Bebida">
+  <h1>Mais Fraco pra Bebida</h1>
+  <div class="options">
+    <div class="option" data-v="KAUAN"><span class="dot"></span>KAUAN</div>
+    <div class="option" data-v="LUDI"><span class="dot"></span>LUDI</div>
+    <div class="option" data-v="THIAGO"><span class="dot"></span>THIAGO</div>
+    <div class="option" data-v="DJONATHAN"><span class="dot"></span>DJONATHAN</div>
+    <div class="option" data-v="IAGO"><span class="dot"></span>IAGO</div>
+  </div>
+  <button class="vote-btn" disabled>VOTAR</button>
+</section>
 
-function next() {
-  document.getElementById('p'+atual).classList.remove('active');
-  atual = atual === total ? 1 : atual + 1;
-  document.getElementById('p'+atual).classList.add('active');
-}
+<section id="p6" class="page" data-cat="Melhor Frase">
+  <h1>Melhor Frase</h1>
+  <div class="options">
+    <div class="option" data-v="Fds estoro"><span class="dot"></span>“Fds estoro”</div>
+    <div class="option" data-v="Pode sair de casa"><span class="dot"></span>“Pode sair de casa”</div>
+    <div class="option" data-v="Rato do PT"><span class="dot"></span>“Rato do PT”</div>
+    <div class="option" data-v="Pega um cara nd ve"><span class="dot"></span>“Pega um cara nd ve”</div>
+    <div class="option" data-v="Bucha"><span class="dot"></span>“Bucha”</div>
+  </div>
+  <button class="vote-btn" disabled>VOTAR</button>
+</section>
 
-document.querySelectorAll('.page').forEach(page => {
-  {
-  const btn = page.querySelector('.vote-btn');
-  const options = page.querySelectorAll('.option');
-  let escolha = null;
-
-  options.forEach(op => {
-    op.onclick = () => {
-      options.forEach(o => o.classList.remove('selected'));
-      op.classList.add('selected');
-      escolha = op.getAttribute('data-v');
-      btn.disabled = false;
-    };
-  });
-
-  btn.onclick = () => {
-    if (!escolha) return;
-
-    btn.textContent = "ENVIANDO...";
-
-    const url = scriptURL +
-      "?category=" + encodeURIComponent(page.getAttribute('data-cat')) +
-      "&choice="   + encodeURIComponent(escolha);
-
-    fetch(url, {method: "GET", mode: "no-cors"})
-      .then(() => {
-        btn.classList.add('voted');
-        setTimeout(next, 700);
-      })
-      .catch(() => {
-        alert("Erro! Tenta de novo");
-        btn.textContent = "VOTAR";
-        btn.disabled = false;
-      });
-  };
-});
-</script>
-</body>
-</html>
+<section id="p7" class="page" data-cat="Maior Inimigo da NFG">
+  <h1>Maior Inimigo da NFG</h1>
+  <div class="options">
+    <div class="option" data-v="ELIANO VITOR"><span class="dot"></span>ELIANO VITOR</div>
+    <div class="option" data-v="EXPRESSO SÃO MIGUEL"><span class="dot"></span>EXPRESSO SÃO MIGUEL</div>
+    <div class="option" data-v="POISON (THRONE)"><sp

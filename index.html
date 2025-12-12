@@ -1,77 +1,257 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NFG Awards 2025</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NFG Awards 2025 - Votação</title>
 <style>
-  body,html{margin:0;height:100%;font-family:Arial,sans-serif;background:#000;color:#fff;overflow:hidden}
-  body{background:url('NFG_Awards_-_banner.png') center/cover fixed}
-  .page{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:70px 20px 20px;box-sizing:border-box;opacity:0;transition:opacity .5s}
-  .page.active{opacity:1;z-index:10}
-  h1{font-size:40px;margin-bottom:40px;text-align:center;text-shadow:0 0 20px #000}
-  .options{max-width:900px;width:100%}
-  .option{background:rgba(255,255,255,0.11);padding:20px 24px;border-radius:16px;margin:12px 0;font-size:21px;cursor:pointer;display:flex;align-items:center;gap:18px;transition:.25s}
-  .option:hover{background:rgba(255,255,255,0.2)}
-  .option.selected{background:#00eeff;color:#000;font-weight:bold}
-  .dot{width:24px;height:24px;border-radius:50%;border:3px solid #fff;flex-shrink:0}
-  .option.selected .dot{background:#000;border-color:#000}
-  .vote-btn{width:100%;max-width:900px;margin:40px auto 0;padding:20px;font-size:24px;border:none;border-radius:16px;background:#00eeff;color:#000;font-weight:bold;cursor:pointer}
-  .vote-btn:disabled{opacity:0.4;cursor:not-allowed}
-  .vote-btn.voted{opacity:0;pointer-events:none;transition:opacity .6s}
-  @media(max-width:600px){h1{font-size:30px}.option{font-size:19px;padding:18px}}
+  :root{--accent:#00d4ff}
+  html,body{height:100%;margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:#000}
+  body{
+    background: url('NFG_Awards_-_banner.png') no-repeat center center fixed;
+    background-size: cover;
+    color:#fff;
+    overflow:hidden;
+  }
+  .bg-overlay{position:fixed;inset:-5% 0 0 -5%;background:url('Ativo_2.png') no-repeat center;background-size:contain;opacity:0.13;pointer-events:none}
+  .page{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:48px;box-sizing:border-box;background:linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.65));transition:opacity .25s,transform .25s;opacity:0;visibility:hidden}
+  .page.active{opacity:1;visibility:visible}
+  h1{margin:12vh 0 24px;font-size:40px;text-align:center;text-shadow:0 6px 24px rgba(0,0,0,0.6);letter-spacing:1px}
+  .options{width:100%;max-width:920px}
+  .option{background:rgba(255,255,255,0.08);padding:20px;border-radius:12px;margin:12px 0;font-size:20px;cursor:pointer;display:flex;align-items:center;gap:12px}
+  .option.selected{background:linear-gradient(90deg, rgba(0,212,255,0.12), rgba(0,212,255,0.08));box-shadow:0 6px 30px rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.12)}
+  .option .dot{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.5);display:inline-block}
+  .option.selected .dot{background:var(--accent);border-color:var(--accent)}
+  .controls{width:100%;max-width:920px;display:flex;gap:12px;margin-top:22px}
+  .vote-btn{flex:1;padding:16px;font-size:18px;border-radius:10px;border:none;background:var(--accent);color:#000;cursor:pointer;opacity:0.95}
+  .vote-btn[disabled]{opacity:0.35;cursor:not-allowed}
+  .done-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:24px}
+  .done-screen h2{font-size:36px}
+  .next-arrow{width:70px;height:70px;border-radius:999px;border:none;background:rgba(255,255,255,0.08);font-size:36px;cursor:pointer}
+  .footer-note{position:fixed;left:20px;bottom:20px;font-size:13px;opacity:0.8}
+  @media (max-width:600px){h1{font-size:28px}.option{font-size:16px;padding:14px}}
 </style>
 </head>
 <body>
+<div class="bg-overlay"></div>
 
-<!-- 17 categorias completas aqui (igual ao seu) -->
-<!-- ... p1 até p17 exatamente como você já tem ... -->
+<!-- PAGE 1 - Maior Dementador -->
+<section id="page1" class="page active" data-cat="Maior Dementador">
+  <h1>Maior Dementador</h1>
+  <div class="options">
+    <div class="option" data-value="ZART"><span class="dot"></span>ZART</div>
+    <div class="option" data-value="POTTER"><span class="dot"></span>POTTER</div>
+    <div class="option" data-value="PEDRO"><span class="dot"></span>PEDRO</div>
+    <div class="option" data-value="FAT"><span class="dot"></span>FAT</div>
+    <div class="option" data-value="JUAN"><span class="dot"></span>JUAN</div>
+    <div class="option" data-value="BRUNA"><span class="dot"></span>BRUNA</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE2 - Maior Criador de Narrativas -->
+<section id="page2" class="page" data-cat="Maior Criador de Narrativas">
+  <h1>Maior Criador de Narrativas</h1>
+  <div class="options">
+    <div class="option" data-value="ZART"><span class="dot"></span>ZART</div>
+    <div class="option" data-value="POTTER"><span class="dot"></span>POTTER</div>
+    <div class="option" data-value="PEDRO"><span class="dot"></span>PEDRO</div>
+    <div class="option" data-value="DJONATHAN"><span class="dot"></span>DJONATHAN</div>
+    <div class="option" data-value="JUAN"><span class="dot"></span>JUAN</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE3 - Maior Narrativa -->
+<section id="page3" class="page" data-cat="Maior Narrativa">
+  <h1>Maior Narrativa</h1>
+  <div class="options">
+    <div class="option" data-value="IAGO por o KAUAN na família"><span class="dot"></span>IAGO por o KAUAN na família</div>
+    <div class="option" data-value="PEDRO pegar a ANITA"><span class="dot"></span>PEDRO pegar a ANITA</div>
+    <div class="option" data-value="VINI andar de long"><span class="dot"></span>VINI andar de long</div>
+    <div class="option" data-value="DJONATHAN pegar cara"><span class="dot"></span>DJONATHAN pegar cara</div>
+    <div class="option" data-value="IAGO cafetão"><span class="dot"></span>IAGO cafetão</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE4 - Mais Tiltado em Games -->
+<section id="page4" class="page" data-cat="Mais Tiltado em Games">
+  <h1>Mais Tiltado em Games</h1>
+  <div class="options">
+    <div class="option" data-value="KAUAN"><span class="dot"></span>KAUAN</div>
+    <div class="option" data-value="POTTER"><span class="dot"></span>POTTER</div>
+    <div class="option" data-value="PEDRO"><span class="dot"></span>PEDRO</div>
+    <div class="option" data-value="DJONATHAN"><span class="dot"></span>DJONATHAN</div>
+    <div class="option" data-value="JUAN"><span class="dot"></span>JUAN</div>
+    <div class="option" data-value="MANAUS"><span class="dot"></span>MANAUS</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE5 - Mais Fraco pra Bebida -->
+<section id="page5" class="page" data-cat="Mais Fraco pra Bebida">
+  <h1>Mais Fraco pra Bebida</h1>
+  <div class="options">
+    <div class="option" data-value="KAUAN"><span class="dot"></span>KAUAN</div>
+    <div class="option" data-value="LUDI"><span class="dot"></span>LUDI</div>
+    <div class="option" data-value="THIAGO"><span class="dot"></span>THIAGO</div>
+    <div class="option" data-value="DJONATHAN"><span class="dot"></span>DJONATHAN</div>
+    <div class="option" data-value="IAGO"><span class="dot"></span>IAGO</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE6 - Melhor Frase -->
+<section id="page6" class="page" data-cat="Melhor Frase">
+  <h1>Melhor Frase</h1>
+  <div class="options">
+    <div class="option" data-value="Fds estoro"><span class="dot"></span>“Fds estoro”</div>
+    <div class="option" data-value="Pode sair de casa"><span class="dot"></span>“Pode sair de casa”</div>
+    <div class="option" data-value="Rato do PT"><span class="dot"></span>“Rato do PT”</div>
+    <div class="option" data-value="Pega um cara nd ve"><span class="dot"></span>“Pega um cara nd ve”</div>
+    <div class="option" data-value="Bucha"><span class="dot"></span>“Bucha”</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE7 - Maior Inimigo da NFG -->
+<section id="page7" class="page" data-cat="Maior Inimigo da NFG">
+  <h1>Maior Inimigo da NFG</h1>
+  <div class="options">
+    <div class="option" data-value="ELIANO VITOR"><span class="dot"></span>ELIANO VITOR</div>
+    <div class="option" data-value="EXPRESSO SÃO MIGUEL"><span class="dot"></span>EXPRESSO SÃO MIGUEL</div>
+    <div class="option" data-value="POISON (THRONE)"><span class="dot"></span>POISON (THRONE)</div>
+    <div class="option" data-value="UPA DE PORTO ALEGRE"><span class="dot"></span>UPA DE PORTO ALEGRE</div>
+    <div class="option" data-value="VIETNÃ"><span class="dot"></span>VIETNÃ</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE8 - Melhor Artista -->
+<section id="page8" class="page" data-cat="Melhor Artista">
+  <h1>Melhor Artista</h1>
+  <div class="options">
+    <div class="option" data-value="SABRINA CARPENTER"><span class="dot"></span>SABRINA CARPENTER</div>
+    <div class="option" data-value="BIBI BABY-DOLL"><span class="dot"></span>BIBI BABY-DOLL</div>
+    <div class="option" data-value="LINKIN PARK"><span class="dot"></span>LINKIN PARK</div>
+    <div class="option" data-value="LEAGUE OF LEGENDS"><span class="dot"></span>LEAGUE OF LEGENDS</div>
+    <div class="option" data-value="LADY GAGA"><span class="dot"></span>LADY GAGA</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE9 - Pior Recomendação -->
+<section id="page9" class="page" data-cat="Pior Recomendação">
+  <h1>Pior Recomendação</h1>
+  <div class="options">
+    <div class="option" data-value="ARCADEGEDDON (POTTER)"><span class="dot"></span>ARCADEGEDDON (POTTER)</div>
+    <div class="option" data-value="WILDGATE (FAT)"><span class="dot"></span>WILDGATE (FAT)</div>
+    <div class="option" data-value="THE FIRST DESCENDANT (POTTER)"><span class="dot"></span>THE FIRST DESCENDANT (POTTER)</div>
+    <div class="option" data-value="BLACK DESERT (FAT)"><span class="dot"></span>BLACK DESERT (FAT)</div>
+    <div class="option" data-value="DEADZONE (POTTER)"><span class="dot"></span>DEADZONE (POTTER)</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE10 - Pior Jogo -->
+<section id="page10" class="page" data-cat="Pior Jogo">
+  <h1>Pior Jogo</h1>
+  <div class="options">
+    <div class="option" data-value="RANCH SIM"><span class="dot"></span>RANCH SIM</div>
+    <div class="option" data-value="MARVEL RIVALS"><span class="dot"></span>MARVEL RIVALS</div>
+    <div class="option" data-value="LEAGUE OF LEGENDS"><span class="dot"></span>LEAGUE OF LEGENDS</div>
+    <div class="option" data-value="REMATCH"><span class="dot"></span>REMATCH</div>
+    <div class="option" data-value="PUMMEL PARTY"><span class="dot"></span>PUMMEL PARTY</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- PAGE11 - Jogo do Ano -->
+<section id="page11" class="page" data-cat="Jogo do Ano">
+  <h1>Jogo do Ano</h1>
+  <div class="options">
+    <div class="option" data-value="R.E.P.O"><span class="dot"></span>R.E.P.O</div>
+    <div class="option" data-value="ESCAPE THE BACKROOMS"><span class="dot"></span>ESCAPE THE BACKROOMS</div>
+    <div class="option" data-value="LEAGUE OF LEGENDS"><span class="dot"></span>LEAGUE OF LEGENDS</div>
+    <div class="option" data-value="THRONE AND LIBERTY"><span class="dot"></span>THRONE AND LIBERTY</div>
+    <div class="option" data-value="PEAK"><span class="dot"></span>PEAK</div>
+    <div class="option" data-value="NOFGMON (MINE)"><span class="dot"></span>NOFGMON (MINE)</div>
+  </div>
+  <div class="controls"><button class="vote-btn" disabled>VOTAR</button></div>
+</section>
+
+<!-- DONE SCREENS (uma pra cada categoria) -->
+<section id="done1" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice1"></strong></p><button class="next-arrow" onclick="goto(2)">↓</button></div></section>
+<section id="done2" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice2"></strong></p><button class="next-arrow" onclick="goto(3)">↓</button></div></section>
+<section id="done3" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice3"></strong></p><button class="next-arrow" onclick="goto(4)">↓</button></div></section>
+<section id="done4" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice4"></strong></p><button class="next-arrow" onclick="goto(5)">↓</button></div></section>
+<section id="done5" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice5"></strong></p><button class="next-arrow" onclick="goto(6)">↓</button></div></section>
+<section id="done6" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice6"></strong></p><button class="next-arrow" onclick="goto(7)">↓</button></div></section>
+<section id="done7" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice7"></strong></p><button class="next-arrow" onclick="goto(8)">↓</button></div></section>
+<section id="done8" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice8"></strong></p><button class="next-arrow" onclick="goto(9)">↓</button></div></section>
+<section id="done9" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice9"></strong></p><button class="next-arrow" onclick="goto(10)">↓</button></div></section>
+<section id="done10" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice10"></strong></p><button class="next-arrow" onclick="goto(11)">↓</button></div></section>
+<section id="done11" class="page" aria-hidden="true"><div class="done-screen"><h2>Voto registrado!</h2><p>Obrigado por votar em <strong id="doneChoice11"></strong></p><button class="next-arrow" onclick="goto(1)">↺</button></div></section>
+
+<div class="footer-note">NFG Awards 2025 • Votação automática — votos vão direto pro Google Sheets</div>
 
 <script>
-// COLE AQUI O NOVO LINK QUE O GOOGLE ACABOU DE TE DAR
-const scriptURL = "https://script.google.com/macros/s/AKfycbxizb8_900Go9zsw-nJG3I-CUnkyMckfMbbvFF5v50ofNztkQlJ33EhOVM2U_dxIMLhSA/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzw5tq3hUpeWCflejerThznTumfG7n_916B5wG4eXpu92DgFIe9DPzxAQvNiVyg4sgGSA/exec";
+const totalPages = 11;
 
-let atual = 1;
-const total = 17;
-
-function next() {
-  document.getElementById('p'+atual).classList.remove('active');
-  atual = atual === total ? 1 : atual + 1;
-  document.getElementById('p'+atual).classList.add('active');
+function goto(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const page = document.getElementById('page'+n);
+  if(page) page.classList.add('active');
+  const done = document.getElementById('done'+n);
+  if(done) done.classList.add('active');
 }
 
-document.querySelectorAll('.page').forEach(page => {
-  const btn = page.querySelector('.vote-btn');
-  const options = page.querySelectorAll('.option');
-  let escolha = null;
+// comportamento das opções e voto
+for(let i=1;i<=totalPages;i++){
+  const page = document.getElementById('page'+i);
+  if(!page) continue;
+  const options = Array.from(page.querySelectorAll('.option'));
+  const voteBtn = page.querySelector('.vote-btn');
+  let selected = null;
 
-  options.forEach(op => {
-    op.addEventListener('click', () => {
-      options.forEach(o => o.classList.remove('selected'));
-      op.classList.add('selected');
-      escolha = op.dataset.v;
-      btn.disabled = false;
+  options.forEach(opt => {
+    opt.addEventListener('click', ()=>{
+      options.forEach(o=>o.classList.remove('selected'));
+      opt.classList.add('selected');
+      selected = opt.getAttribute('data-value');
+      voteBtn.disabled = false;
     });
   });
 
-  btn.addEventListener('click', () => {
-    if (!escolha) return;
-    btn.textContent = "ENVIANDO...";
-    const url = scriptURL +
-      "?category=" + encodeURIComponent(page.dataset.cat) +
-      "&choice=" + encodeURIComponent(escolha);
+  voteBtn.addEventListener('click', ()=>{
+    if(!selected) return;
+    const payload = {
+      category: page.getAttribute('data-cat'),
+      choice: selected,
+      ts: new Date().toISOString()
+    };
 
-    fetch(url, {method: "GET"})
-      .then(() => {
-        btn.classList.add('voted');
-        setTimeout(next, 700);
+    fetch(scriptURL, {method:'POST', body: JSON.stringify(payload)})
+      .then(()=>{
+        document.getElementById('doneChoice'+i).textContent = selected;
+        page.classList.remove('active');
+        document.getElementById('done'+i).classList.add('active');
       })
-      .catch(() => {
-        alert("Erro de rede!");
-        btn.textContent = "VOTAR";
-        btn.disabled = false;
+      .catch(err=>{
+        alert('Erro ao enviar. Tenta de novo!');
+        console.error(err);
       });
   });
+}
+
+// Enter pra votar
+window.addEventListener('keydown', e=>{
+  if(e.key==='Enter'){
+    const btn = document.querySelector('.page.active .vote-btn');
+    if(btn && !btn.disabled) btn.click();
+  }
 });
 </script>
 </body>
